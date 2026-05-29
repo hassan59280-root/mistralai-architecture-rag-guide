@@ -1,0 +1,29 @@
+# Architecture RAG Avancée (V2) : Production, Sécurité (RBAC) & Optimisation Financière
+
+Bienvenue dans la Version 2 (Production-Ready) du guide d'architecture RAG dédié à l'écosystème **Mistral AI**. 
+
+Alors que la V1 posait les bases conceptuelles, cette itération introduit les briques technologiques indispensables pour déployer un système de gestion des connaissances souverain, sécurisé à l'échelle de l'entreprise (Enterprise-Grade) et optimisé pour réduire drastiquement les coûts d'infrastructures.
+
+---
+
+## 🏗️ L'Architecture Technique Globale
+
+L'architecture est orchestrée par **LlamaIndex** et s'articule autour de deux pipelines indépendants : l'Ingestion (traitement asynchrone) et l'Inférence (requête temps réel).
+
+
+
+### 📊 Tableau de correspondance des briques technologiques
+
+| Composant V1 | Technologie V2 Sélectionnée | Justification Technique |
+| :--- | :--- | :--- |
+| **Parsing** | **LlamaParse** | Extraction avancée du layout (tableaux complexes, structures multi-colonnes) au format Markdown natif. |
+| **Chunking** | **LlamaIndex SemanticSplitter** | Découpage basé sur les variations d'embeddings (rupture sémantique) plutôt que sur un nombre arbitraire de caractères. |
+| **Vector Store** | **Qdrant (Engine: Rust)** | Indexation vectorielle ultra-rapide (HNSW), chiffrement au repos et support natif du *Payload Filtering*. |
+| **Re-ranking** | **BGE-Reranker** (ou Cohere API) | Modèle de type *Cross-Encoder* pour le tri de haute précision et l'atténuation du phénomène *Lost in the Middle*. |
+| **LLM Engine** | **Mistral Large / Codestral** | Moteur de raisonnement souverain et de génération de niveau GPT-4. |
+
+---
+
+## ⚡ 1. Le Pipeline d'Ingestion (Data Preparation)
+
+Le flux d'ingestion garantit la qualité de la donnée brute et l'injection des politiques de sécurité dès la racine du stockage.
